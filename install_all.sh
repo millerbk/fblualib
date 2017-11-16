@@ -127,11 +127,11 @@ echo
 cd $dir/fbthrift/thrift
 autoreconf -ivf
 ./configure
-if [ $current -eq 1 ]; then
-    pushd lib/cpp2/fatal/internal
-    ln -s folly_dynamic-inl-pre.h folly_dynamic-inl.h
-    popd
-fi
+#if [ $current -eq 1 ]; then
+ #   pushd lib/cpp2/fatal/internal
+  #  ln -s folly_dynamic-inl-pre.h folly_dynamic-inl.h
+   # popd
+#fi
 make
 sudo make install
 
