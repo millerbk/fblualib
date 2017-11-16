@@ -87,7 +87,7 @@ echo Cloning repositories
 echo
 if [ $current -eq 1 ]; then
     git clone --depth 1 https://github.com/facebook/folly
-    git clone --depth 1 https://github.com/facebook/fbthrift
+    git clone -b v0.24.0 --depth 1 https://github.com/facebook/fbthrift
     git clone https://github.com/facebook/thpp
     git clone https://github.com/facebook/fblualib
     git clone https://github.com/facebook/wangle
@@ -125,7 +125,8 @@ echo Building fbthrift
 echo
 
 cd $dir/fbthrift/thrift
-cmake .
+autoreconf -ivf
+./configure
 if [ $current -eq 1 ]; then
     pushd lib/cpp2/fatal/internal
     ln -s folly_dynamic-inl-pre.h folly_dynamic-inl.h
