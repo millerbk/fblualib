@@ -125,8 +125,7 @@ echo Building fbthrift
 echo
 
 cd $dir/fbthrift/thrift
-autoreconf -ivf
-./configure
+cmake .
 if [ $current -eq 1 ]; then
     pushd lib/cpp2/fatal/internal
     ln -s folly_dynamic-inl-pre.h folly_dynamic-inl.h
